@@ -10,15 +10,15 @@ const Pokemon = (props) =>{
         axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((res)=>{
             setPokemon(res.data)
-            console.log(res.data.sprites.versions[0])
+            console.log(res.data.sprites.versions.["generation-i"]["red-blue"].front_default)
         })
     },[name])
 
 return(
     <p>
         <h1>{pokemon.name}</h1>
-        <img alt={pokemon.name} src={pokemon.sprites?.front_default}/> 
-        {/* <img alt={pokemon.name} src={pokemon.sprites.versions?."generation_i"?."red_blue".front_default}/> */}
+        {/* <img alt={pokemon.name} src={pokemon.sprites?.front_default}/>  */}
+        <img alt={pokemon.name} src={pokemon.sprites?.versions.["generation-i"]["red-blue"].front_default}/>
     </p>
 )
 }
